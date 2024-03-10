@@ -6,13 +6,17 @@ WORKDIR /app
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
-COPY ["exchange.service/ExchangeRate.ExternalClient/ExchangeRate.ExternalClient.csproj", "./ExchangeRate.ExternalClient/"]
-RUN dotnet restore "./ExchangeRate.ExternalClient/ExchangeRate.ExternalClient.csproj"
-COPY ["exchange.service/ExchangeRate.ExternalClient/", "./ExchangeRate.ExternalClient/"]
-
 COPY ["exchange.service/Infrastructure.CrossCutting/Infrastructure.CrossCutting.csproj", "./Infrastructure.CrossCutting/"]
 RUN dotnet restore "./Infrastructure.CrossCutting/Infrastructure.CrossCutting.csproj"
 COPY ["exchange.service/Infrastructure.CrossCutting/", "./Infrastructure.CrossCutting/"]
+
+COPY ["exchange.service/ExchangeCurrencyRateEventPublisher/ExchangeCurrencyRateEventPublisher.csproj", "./ExchangeCurrencyRateEventPublisher/"]
+RUN dotnet restore "./ExchangeCurrencyRateEventPublisher/ExchangeCurrencyRateEventPublisher.csproj"
+COPY ["exchange.service/ExchangeCurrencyRateEventPublisher/", "./ExchangeCurrencyRateEventPublisher/"]
+
+COPY ["exchange.service/ExchangeRate.ExternalClient/ExchangeRate.ExternalClient.csproj", "./ExchangeRate.ExternalClient/"]
+RUN dotnet restore "./ExchangeRate.ExternalClient/ExchangeRate.ExternalClient.csproj"
+COPY ["exchange.service/ExchangeRate.ExternalClient/", "./ExchangeRate.ExternalClient/"]
 
 COPY ["exchange.service/Infrastructure.Persistence/Infrastructure.Persistence.csproj", "./Infrastructure.Persistence/"]
 RUN dotnet restore "./Infrastructure.Persistence/Infrastructure.Persistence.csproj"

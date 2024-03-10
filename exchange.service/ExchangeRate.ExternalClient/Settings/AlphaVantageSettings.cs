@@ -2,7 +2,7 @@
 {
     public class AlphaVantageSettings
     {
-        public static string PropertyName => nameof(AlphaVantageSettings);
+        public static string SettingName => nameof(AlphaVantageSettings);
 
         public required string ApiKey { get; init; }
     }

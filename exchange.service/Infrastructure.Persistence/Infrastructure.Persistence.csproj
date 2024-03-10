@@ -14,6 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ExchangeCurrencyRateEventPublisher\ExchangeCurrencyRateEventPublisher.csproj" />
     <ProjectReference Include="..\ExchangeRate.ExternalClient\ExchangeRate.ExternalClient.csproj" />
     <ProjectReference Include="..\Infrastructure.CrossCutting\Infrastructure.CrossCutting.csproj" />
   </ItemGroup>

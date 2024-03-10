@@ -1,11 +1,14 @@
+using ExchangeApi.Dependencies;
 using ExchangeCore;
+using ExchangeCurrencyRateEventPublisher;
+using ExchangeCurrencyRateEventPublisher.Implementations;
+using ExchangeRate.ExternalClient;
 using ExchangeRate.ExternalClient.Settings;
 using Infrastructure.CrossCutting.Settings;
 using Infrastructure.Persistence.Services;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Options;
-using ExchangeRate.ExternalClient;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
@@ -16,15 +19,20 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddApplication();
 builder.Services.AddHttpClient();
 
+// Add RabbitMq Producer
+builder.Services.AddRabbitMqEventPublisher(builder);
+
 // Add Mongo Settings
 builder.Services.Configure<MongoSettings>(
-    builder.Configuration.GetSection(MongoSettings.PropertyName));
+    builder.Configuration.GetSection(MongoSettings.SettingName));
 builder.Services.AddSingleton<IExchangeRatesService>(x => 
-    new ExchangeRatesService(x.GetRequiredService<IOptions<MongoSettings>>(), x.GetRequiredService<IExchangeRateClient>()));
+    new ExchangeRatesService(x.GetRequiredService<IOptions<MongoSettings>>(),
+                             x.GetRequiredService<IExchangeRateClient>(),
+                             x.GetRequiredService<IExchangeCurrencyRatePublisher>()));
 
 // Add AlphaVillage Settings
 builder.Services.Configure<AlphaVantageSettings>(
-    builder.Configuration.GetSection(AlphaVantageSettings.PropertyName));
+    builder.Configuration.GetSection(AlphaVantageSettings.SettingName));
 builder.Services.AddAlphaVantageClient();
 
 builder.Services.AddApiVersioning(config =>

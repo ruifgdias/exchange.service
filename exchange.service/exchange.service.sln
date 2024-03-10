@@ -3,24 +3,25 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34616.47
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExchangeApi", "ExchangeApi\ExchangeApi.csproj", "{530AB37A-F231-4B8D-B79E-78BADAA17DD7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExchangeApi", "ExchangeApi\ExchangeApi.csproj", "{530AB37A-F231-4B8D-B79E-78BADAA17DD7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExchangeData", "ExchangeData\ExchangeData.csproj", "{0A763B60-FCB6-43B6-B656-A43AC0E8F982}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExchangeData", "ExchangeData\ExchangeData.csproj", "{0A763B60-FCB6-43B6-B656-A43AC0E8F982}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{A7AD6B75-C4B9-441F-865E-67667657334D}"
 	ProjectSection(SolutionItems) = preProject
-		..\deploy\docker\Database.Dockerfile = ..\deploy\docker\Database.Dockerfile
 		..\docker-compose.yml = ..\docker-compose.yml
 		..\deploy\docker\Dockerfile = ..\deploy\docker\Dockerfile
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExchangeCore", "ExchangeCore\ExchangeCore.csproj", "{08A5F65B-0EB5-4B1E-AD29-D8EF6D9AD5B2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExchangeCore", "ExchangeCore\ExchangeCore.csproj", "{08A5F65B-0EB5-4B1E-AD29-D8EF6D9AD5B2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure.Persistence", "Infrastructure.Persistence\Infrastructure.Persistence.csproj", "{D145F772-74AD-41A6-93FE-D2DEC40CD59E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure.Persistence", "Infrastructure.Persistence\Infrastructure.Persistence.csproj", "{D145F772-74AD-41A6-93FE-D2DEC40CD59E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure.CrossCutting", "Infrastructure.CrossCutting\Infrastructure.CrossCutting.csproj", "{F7579CA8-559A-4EB3-B2CC-25F7E2700C87}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure.CrossCutting", "Infrastructure.CrossCutting\Infrastructure.CrossCutting.csproj", "{F7579CA8-559A-4EB3-B2CC-25F7E2700C87}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExchangeRate.ExternalClient", "ExchangeRate.ExternalClient\ExchangeRate.ExternalClient.csproj", "{620BD955-E0AA-4D72-A100-0F34B3A9B05C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExchangeRate.ExternalClient", "ExchangeRate.ExternalClient\ExchangeRate.ExternalClient.csproj", "{620BD955-E0AA-4D72-A100-0F34B3A9B05C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExchangeCurrencyRateEventPublisher", "ExchangeCurrencyRateEventPublisher\ExchangeCurrencyRateEventPublisher.csproj", "{885372CE-7920-43E2-88B4-2FE00AA83C01}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -52,6 +53,10 @@ Global
 		{620BD955-E0AA-4D72-A100-0F34B3A9B05C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{620BD955-E0AA-4D72-A100-0F34B3A9B05C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{620BD955-E0AA-4D72-A100-0F34B3A9B05C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{885372CE-7920-43E2-88B4-2FE00AA83C01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{885372CE-7920-43E2-88B4-2FE00AA83C01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{885372CE-7920-43E2-88B4-2FE00AA83C01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{885372CE-7920-43E2-88B4-2FE00AA83C01}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

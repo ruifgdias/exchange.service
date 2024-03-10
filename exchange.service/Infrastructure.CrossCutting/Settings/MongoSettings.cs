@@ -2,7 +2,7 @@
 {
     public class MongoSettings
     {
-        public static string PropertyName => nameof(MongoSettings);
+        public static string SettingName => nameof(MongoSettings);
 
         public string ConnectionString { get; set; } = null!;
 
